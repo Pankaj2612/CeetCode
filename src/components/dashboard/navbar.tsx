@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -20,14 +19,7 @@ const Navbar = () => {
       setIsuserloggedin(true);
     }
   }, [status, session]);
-=======
-import Link from "next/link";
-import React from "react";
-import { Button } from "../ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
-const Navbar = () => {
->>>>>>> 0b23b331c4323be05dd72641963d729bfd50fef9
   return (
     <nav className="bg-gray-800 text-white py-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -53,7 +45,7 @@ const Navbar = () => {
             Practice
           </Link>
         </div>
-<<<<<<< HEAD
+
         <div className="flex items-center space-x-4 px-4">
           {!isuserloggedin ? (
             <>
@@ -69,25 +61,22 @@ const Navbar = () => {
               <Button onClick={() => signOut()}>Logout</Button>
             </>
           )}
-          <Avatar>
-            <AvatarImage src={avatar} alt="@shadcn" />
-=======
-        <div className="flex items-center space-x-4">
-          <Link href="/login">
-            <Button>Login</Button>
-          </Link>
-          <Link href="/register">
-            <Button>SigUp</Button>
-          </Link>
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
->>>>>>> 0b23b331c4323be05dd72641963d729bfd50fef9
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+
+          <div className="flex items-center space-x-4">
+            <Link href="/login">
+              <Button>Login</Button>
+            </Link>
+            <Link href="/register">
+              <Button>SigUp</Button>
+            </Link>
+            <Avatar>
+              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          </div>
         </div>
       </div>
     </nav>
   );
 };
-
 export default Navbar;
