@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import AllFilter from "@/components/dashboard/filter";
 import { TableDemo } from "@/components/dashboard/question-table";
 
@@ -17,14 +16,4 @@ const Page = () => {
     </div>
   );
 };
-
 export default Page;
-=======
-import { Session } from "inspector/promises";
-import { auth } from "../../auth";
-
-export default async function Home() {
-  const session = await auth();
-  return <div>{JSON.stringify(session)}</div>;
-}
->>>>>>> 0b23b331c4323be05dd72641963d729bfd50fef9
