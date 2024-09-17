@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { FaRandom } from "react-icons/fa";
 import { Button } from "../ui/button";
 import { CompanyFilter } from "./company-filter";
@@ -10,6 +10,7 @@ import { SearchBar } from "./search-bar";
 import { Badge } from "../ui/badge";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { capitalizeFirstLetter } from "./question-table";
+import Loader from "../ui/loader";
 
 export default function AllFilter() {
   const [badges, setBadges] = useState<string[]>([]);
@@ -43,24 +44,26 @@ export default function AllFilter() {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="flex  space-x-2 p-2">
-        {/* Filters */}
-        <CompanyFilter />
-        <DropdownMenuRadioGroupDemo />
-        {/* <TagFilter /> */}
-        <SearchBar />
-        <Button size="sm" variant="ghost">
-          <FaRandom />
-        </Button>
+    <Suspense fallback={<Loader/>}>
+      <div className="flex flex-col">
+        <div className="flex  space-x-2 p-2">
+          {/* Filters */}
+          <CompanyFilter />
+          <DropdownMenuRadioGroupDemo />
+          {/* <TagFilter /> */}
+          <SearchBar />
+          <Button size="sm" variant="ghost">
+            <FaRandom />
+          </Button>
+        </div>
+        <div className="flex space-x-2 p-2">
+          {badges.map((badge, index) => (
+            <Badge key={index} onRemove={() => handleRemoveBadge(badge)}>
+              {capitalizeFirstLetter(badge)}
+            </Badge>
+          ))}
+        </div>
       </div>
-      <div className="flex space-x-2 p-2">
-        {badges.map((badge, index) => (
-          <Badge key={index} onRemove={() => handleRemoveBadge(badge)}>
-            {capitalizeFirstLetter(badge)}
-          </Badge>
-        ))}
-      </div>
-    </div>
+    </Suspense>
   );
 }
