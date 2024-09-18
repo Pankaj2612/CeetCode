@@ -11,6 +11,7 @@ import { Badge } from "../ui/badge";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { capitalizeFirstLetter } from "./question-table";
 import Loader from "../ui/loader";
+import { ModeToggle } from "./theme-toggle-button";
 
 export default function AllFilter() {
   const [badges, setBadges] = useState<string[]>([]);
@@ -44,17 +45,15 @@ export default function AllFilter() {
   };
 
   return (
-    <Suspense fallback={<Loader/>}>
+    <Suspense fallback={<Loader />}>
       <div className="flex flex-col">
-        <div className="flex  space-x-2 p-2">
+        <div className="flex  space-x-2 p-2 ">
           {/* Filters */}
           <CompanyFilter />
           <DropdownMenuRadioGroupDemo />
           {/* <TagFilter /> */}
           <SearchBar />
-          <Button size="sm" variant="ghost">
-            <FaRandom />
-          </Button>
+         
         </div>
         <div className="flex space-x-2 p-2">
           {badges.map((badge, index) => (

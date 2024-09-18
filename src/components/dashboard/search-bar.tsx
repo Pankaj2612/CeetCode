@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { useState } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { XIcon } from "lucide-react"; // Import the cross icon from lucide-react
+import { ModeToggle } from "./theme-toggle-button";
 
 export function SearchBar() {
   const [search, setSearch] = useState("");
@@ -64,6 +65,7 @@ export function SearchBar() {
         <Button type="submit" size="sm">
           Search
         </Button>
+        <ModeToggle />
       </form>
     </div>
   );
