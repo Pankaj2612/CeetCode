@@ -18,14 +18,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
-const companies = [
-  { value: "google", label: "Google" },
-  { value: "microsoft", label: "Microsoft" },
-  { value: "amazon", label: "Amazon" },
-  { value: "facebook", label: "Facebook" },
-  { value: "apple", label: "Apple" },
-];
+import { companies } from "../../../comapnies";
 
 export function CompanyFilter() {
   const [open, setOpen] = React.useState(false);
@@ -60,7 +53,7 @@ export function CompanyFilter() {
           role="combobox"
           aria-expanded={open}
           className="w-[200px] justify-between">
-         Companies
+          Companies
           {/* {value
             ? companies.find((company) => company.value === value)?.label
             : "Companies"} */}
